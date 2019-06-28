@@ -43,6 +43,11 @@ public class MovieListActivity extends AppCompatActivity {
     //image config
     Config config;
 
+    /*
+    // recycler view using butterknife
+    @BindView(R.id.title) TextView title;
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

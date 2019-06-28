@@ -19,6 +19,7 @@ public class Movie {
     String posterPath; //only the path, not full URL
     String backdropPath;
     Double voteAverage;
+    Integer id;
 
     // zero argument, empty constructor to implement Parceler
     public Movie() { }
@@ -30,6 +31,7 @@ public class Movie {
         posterPath = object.getString("poster_path");
         backdropPath = object.getString("backdrop_path");
         voteAverage = object.getDouble("vote_average");
+        id = object.getInt("id");
     }
 
     //to automatically generate getters, right click and press on Generate
