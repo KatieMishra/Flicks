@@ -10,6 +10,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcel;
 
+/**
+ * Katie Mishra - Facebook University 2019 - krmishra@stanford.edu
+ * The Movie model defines the components and their getters associated with
+ * a movie to be displayed on the screen.
+ */
 @Parcel
 public class Movie {
 
@@ -53,5 +58,9 @@ public class Movie {
 
     public Double getVoteAverage() {
         return voteAverage;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

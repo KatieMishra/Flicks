@@ -1,12 +1,11 @@
 package com.codepath.flicks;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.codepath.flicks.models.Config;
 import com.codepath.flicks.models.Movie;
@@ -20,8 +19,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.msebera.android.httpclient.Header;
 
+/**
+ * Katie Mishra - Facebook University 2019 - krmishra@stanford.edu
+ * MovieListActivity controls the main screen of the app which displays
+ * all movies, including their titles, descriptions, and poster image.
+ */
 public class MovieListActivity extends AppCompatActivity {
 
     //constants
@@ -36,22 +42,20 @@ public class MovieListActivity extends AppCompatActivity {
     AsyncHttpClient client;
     // list of currently playing movies
     ArrayList<Movie> movies;
-    // the recycler view
-    RecyclerView rvMovies;
+    // recycler view using butterknife
+    @BindView(R.id.rvMovies) RecyclerView rvMovies;
     // the adapter wired to the recycler view
     MovieAdapter adapter;
     //image config
     Config config;
 
-    /*
-    // recycler view using butterknife
-    @BindView(R.id.title) TextView title;
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
         //initialize the client
         client = new AsyncHttpClient();
         //initialize the list of movies
@@ -61,7 +65,6 @@ public class MovieListActivity extends AppCompatActivity {
 
 
         //resolve the reference to the recycler view and connect a layout manager and the adapter
-        rvMovies = (RecyclerView) findViewById(R.id.rvMovies);
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
         rvMovies.setAdapter(adapter);
 

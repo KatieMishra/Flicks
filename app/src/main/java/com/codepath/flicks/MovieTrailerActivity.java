@@ -10,6 +10,11 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 import butterknife.ButterKnife;
 
+/**
+ * Katie Mishra - Facebook University 2019 - krmishra@stanford.edu
+ * This class is incomplete. If completed, it would display a trailer for a given movie,
+ * pulled from YouTube.
+ */
 public class MovieTrailerActivity extends YouTubeBaseActivity {
 
     /*
@@ -46,7 +51,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
     }
 
     // get list of currently playing movies from API
-   /*private void getNowPlaying() {
+    /*private void getTrailer() {
         //create the url
         String url = API_BASE_URL + "/movie/now_playing";
         //reset the request parameters

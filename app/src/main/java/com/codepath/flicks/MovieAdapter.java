@@ -9,16 +9,14 @@ package com.codepath.flicks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
 import com.codepath.flicks.models.Config;
 import com.codepath.flicks.models.Movie;
 
@@ -26,8 +24,13 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import butterknife.BindView;
 
+/**
+ * Katie Mishra - Facebook University 2019 - krmishra@stanford.edu
+ * MovieAdapter provides information for the RecyclerView including an image,
+ * title, and overview. The image changes based on portrait or landscape mode.
+ */
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
     // list of movies
@@ -36,6 +39,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     Config config;
     // context for rendering
     Context context;
+    @BindView(R.id.tvTitle) TextView tvTitle;
 
     // creates and inflates a new view
     @NonNull
@@ -78,10 +82,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         ImageView imageView = isPortrait ? holder.ivPosterImage : holder.ivBackdropImage;
 
         //load image using glide
-        Glide.with(context)
+        GlideApp.with(context)
                 .load(imageUrl)
                 // round corners
-                .bitmapTransform(new RoundedCornersTransformation(context, 25, 0))
+//                .transform(new RoundedCornersTransformation(context, 25, 0))
                 // placeholder while images are loading
                 .placeholder(placeholderId)
                 // could use a different image to indicate that download failed
